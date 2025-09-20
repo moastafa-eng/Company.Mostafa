@@ -1,3 +1,8 @@
+using Company.Mostafa.DAL.Data.Context;
+using Company.Mostafa.DAL.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 namespace Company.Mostafa.PL
 {
     public class Program
@@ -8,6 +13,11 @@ namespace Company.Mostafa.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews(); // Register Built_in MVC Services.
+            builder.Services.AddScoped<Department>();
+            builder.Services.AddDbContext<CompanyDBContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 

@@ -16,7 +16,7 @@ namespace Company.Mostafa.BLL.Repos
 
         public DepartmentRepo(CompanyDBContext Context)
         {
-            _Context = new CompanyDBContext();
+            _Context = Context;
         }
         public int Add(Department Model)
         {
