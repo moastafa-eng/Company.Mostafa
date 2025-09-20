@@ -12,7 +12,7 @@ namespace Company.Mostafa.DAL.Data.Context
     public class CompanyDBContext : DbContext
     {
 
-        public CompanyDBContext() : base()
+        public CompanyDBContext(DbContextOptions<CompanyDBContext> options) : base(options)
         {
 
         }
@@ -21,10 +21,10 @@ namespace Company.Mostafa.DAL.Data.Context
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=.;Database=Company.Mostafa;Trusted_Connection=True;TrustServerCertificate=True;");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server=.;Database=Company.Mostafa;Trusted_Connection=True;TrustServerCertificate=True;");
+        //}
 
         public DbSet<Department> Departments { get; set; }
     }
