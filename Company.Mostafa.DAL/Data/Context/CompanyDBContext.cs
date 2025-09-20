@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace Company.Mostafa.DAL.Data.Context
 {
-    internal class CompanyDBContext : DbContext
+    public class CompanyDBContext : DbContext
     {
 
         public CompanyDBContext() : base()
